@@ -1,1 +1,15 @@
+#include <stdbool.h>
 
+bool canJump(int* nums, int numsSize) {
+    int furthestIndex = 0;
+    
+    for (int i = 0; i < numsSize; i++) {
+        if (i > furthestIndex) {
+            return false;
+        }
+        
+        furthestIndex = (i + nums[i] > furthestIndex) ? i + nums[i] : furthestIndex;
+    }
+    
+    return true;
+}
